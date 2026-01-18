@@ -9,15 +9,19 @@
     *, *::before, *::after {
   box-sizing: border-box;
 }
-   body {
+
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+}
+
+body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
 }
 
 .sudoku-container {
@@ -33,30 +37,31 @@
 }
 
 .cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #999;
-  box-sizing: border-box;
 }
 
-/* Thicker vertical lines */
+/* 3×3 vertical borders */
 .cell:nth-child(3n) {
-  border-right: 2px solid black;
+  border-right: 2px solid #000;
 }
-
 .cell:nth-child(9n + 1) {
-  border-left: 2px solid black;
+  border-left: 2px solid #000;
 }
 
-/* Thicker horizontal lines */
-.cell:nth-child(n + 1):nth-child(-n + 9),
+/* 3×3 horizontal borders */
+.cell:nth-child(-n + 9),
 .cell:nth-child(n + 28):nth-child(-n + 36),
 .cell:nth-child(n + 55):nth-child(-n + 63) {
-  border-top: 2px solid black;
+  border-top: 2px solid #000;
 }
 
 .cell:nth-child(n + 19):nth-child(-n + 27),
 .cell:nth-child(n + 46):nth-child(-n + 54),
 .cell:nth-child(n + 73):nth-child(-n + 81) {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #000;
 }
 
 .cell input {
@@ -65,7 +70,6 @@
   padding: 0;
   margin: 0;
   border: none;
-  outline: none;
   background: transparent;
 
   text-align: center;
@@ -75,58 +79,10 @@
   -webkit-appearance: none;
   appearance: none;
 }
-
-
 
 .cell input:disabled {
   background: #ddd;
   font-weight: bold;
-}
-
-/* Thicker borders for 3x3 blocks */
-.cell:nth-child(3n) {
-  border-right: 2px solid black;
-}
-
-.cell:nth-child(n+19):nth-child(-n+27),
-.cell:nth-child(n+46):nth-child(-n+54) {
-  border-bottom: 2px solid black;
-}
-/* Remove number input arrows */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-    *, *::before, *::after {
-  box-sizing: border-box;
-}
-.cell input {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  border: none;
-  background: transparent;
-
-  text-align: center;
-  font-size: clamp(16px, 4vw, 24px);
-  line-height: 1;
-
-  -webkit-appearance: none;
-  appearance: none;
-}
-#sudoku-grid {
-  overflow: visible;
-}
-
-
-input[type=number] {
-  -moz-appearance: textfield; /* Firefox */
-}
-    html, body {
-  height: 100%;
-  overflow: hidden;
 }
 
   </style>
