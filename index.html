@@ -6,6 +6,9 @@
   <title>Sudoku</title>
 
   <style>
+    *, *::before, *::after {
+  box-sizing: border-box;
+}
    body {
   margin: 0;
   padding: 0;
@@ -26,6 +29,7 @@
   grid-template-columns: repeat(9, 1fr);
   aspect-ratio: 1 / 1;
   border: 3px solid #000;
+  overflow: visible;
 }
 
 .cell {
@@ -55,15 +59,24 @@
   border-bottom: 2px solid black;
 }
 
-
 .cell input {
   width: 100%;
   height: 100%;
-  text-align: center;
-  font-size: clamp(16px, 4vw, 24px);
+  padding: 0;
+  margin: 0;
   border: none;
   outline: none;
+  background: transparent;
+
+  text-align: center;
+  font-size: clamp(16px, 4vw, 24px);
+  line-height: 1;
+
+  -webkit-appearance: none;
+  appearance: none;
 }
+
+
 
 .cell input:disabled {
   background: #ddd;
@@ -85,6 +98,28 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+    *, *::before, *::after {
+  box-sizing: border-box;
+}
+.cell input {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+
+  text-align: center;
+  font-size: clamp(16px, 4vw, 24px);
+  line-height: 1;
+
+  -webkit-appearance: none;
+  appearance: none;
+}
+#sudoku-grid {
+  overflow: visible;
+}
+
 
 input[type=number] {
   -moz-appearance: textfield; /* Firefox */
